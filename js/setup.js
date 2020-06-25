@@ -36,7 +36,7 @@ var getRandomValue = function (array) {
 * @return {array} - массив
 */
 var createWizards = function (count) {
-  var wizard = [];
+  var wizards = [];
   for (var i = 0; i < count; i++) {
     wizard[i] = {
       name: getRandomValue(Wizard.NAMES) + ' ' + getRandomValue(Wizard.SURNAMES),
@@ -44,43 +44,41 @@ var createWizards = function (count) {
       eyesColor: getRandomValue(EYESCOLORS),
     };
   }
-  return wizard;
+  return wizards;
 };
 
 /**
- * создание метки на основе template
- * @param {object} item - элемент
+ * создание HTML для волшебника
+ * @param {object} wizard — объект, описывающий волшебника
  * @return {element} - элемент
  */
 var createWizardCard = function (item) {
   var wizardTemplate = document.querySelector('#similar-wizard-template')
   .content.querySelector('.setup-similar-item');
   var wizardCard = wizardTemplate.cloneNode(true);
-  var label = wizardCard.querySelector('.setup-similar-label');
-  label.textContent = item.name;
-  var coat = wizardCard.querySelector('.wizard-coat');
-  coat.style.fill = item.coatColor;
-  var eyes = wizardCard.querySelector('.wizard-eyes');
-  eyes.style.fill = item.eyesColor;
+  wizardCard.querySelector('.setup-similar-label').textContent = item.name;
+  wizardCard.querySelector('.wizard-coat').style.fill = item.coatColor;
+  wizardCard.querySelector('.wizard-eyes').style.fill = item.eyesColor;
+
   return wizardCard;
 };
 
 /**
  * генерация меток на основе созданного массива объявлений
- * @param {array} dataWizards - массив объктов
+ * @param {array} htmlWizards - массив объктов
  * @return {object} объект
  */
-var generateWizard = function (dataWizards) {
+var generateWizard = function (htmlWizards) {
   var wizardsFragment = document.createDocumentFragment();
-  dataWizards.forEach(function (dataWizard) {
+  htmlWizards.forEach(function (dataWizard) {
     wizardsFragment.appendChild(createWizardCard(dataWizard));
   });
   return wizardsFragment;
 };
 
 var wizardsList = document.querySelector('.setup-similar-list');
-var dataWizards = createWizards(COUNT_WIZARDS);
-wizardsList.appendChild(generateWizard(dataWizards));
+var htmlWizards = createWizards(COUNT_WIZARDS);
+wizardsList.appendChild(generateWizard(htmlWizards));
 
 var setupSimilar = document.querySelector('.setup-similar');
 setupSimilar.classList.remove('hidden');
