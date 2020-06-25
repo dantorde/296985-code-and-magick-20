@@ -38,7 +38,7 @@ var getRandomValue = function (array) {
 var createWizards = function (count) {
   var wizards = [];
   for (var i = 0; i < count; i++) {
-    wizard[i] = {
+    wizards[i] = {
       name: getRandomValue(Wizard.NAMES) + ' ' + getRandomValue(Wizard.SURNAMES),
       coatColor: getRandomValue(COATCOLORS),
       eyesColor: getRandomValue(EYESCOLORS),
@@ -49,7 +49,7 @@ var createWizards = function (count) {
 
 /**
  * создание HTML для волшебника
- * @param {object} wizard — объект, описывающий волшебника
+ * @param {object} item — объект
  * @return {element} - элемент
  */
 var createWizardCard = function (item) {
