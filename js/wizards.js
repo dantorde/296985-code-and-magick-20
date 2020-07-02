@@ -2,7 +2,6 @@
 (function () {
   var COUNT_WIZARDS = 4;
 
-  var datatWizards = window.data.create(COUNT_WIZARDS);
   /**
    * генерация волшебников на основе созданного массива
    * @param {array} datatWizards - массив объктов
@@ -16,6 +15,7 @@
     return wizardsFragment;
   };
 
+  var datatWizards = window.data.create(COUNT_WIZARDS);
   var wizardsList = document.querySelector('.setup-similar-list');
   wizardsList.appendChild(generateWizard(datatWizards));
 
