@@ -10,7 +10,7 @@
     .content.querySelector('.setup-similar-item');
     var wizardCard = wizardTemplate.cloneNode(true);
     wizardCard.querySelector('.setup-similar-label').textContent = item.name;
-    wizardCard.querySelector('.wizard-coat').style.fill = item.coatColor;
+    wizardCard.querySelector('.wizard-coat').style.fill = item.colorCoat;
     wizardCard.querySelector('.wizard-eyes').style.fill = item.eyesColor;
 
     return wizardCard;

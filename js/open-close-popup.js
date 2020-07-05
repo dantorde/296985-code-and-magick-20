@@ -30,11 +30,9 @@
    * открывает попап, добавляет обработчик нажатия Esc
    */
   var openPopup = function () {
-    var setupDialogElement = document.querySelector('.setup');
-    setupDialogElement.style.top = 80 + 'px';
-    setupDialogElement.style.left = 50 + '%';
+    setup.style.top = '';
+    setup.style.left = '';
     setup.classList.remove('hidden');
-
     document.addEventListener('keydown', onPopupEscPress);
   };
 
