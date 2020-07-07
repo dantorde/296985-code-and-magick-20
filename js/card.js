@@ -11,7 +11,7 @@
     var wizardCard = wizardTemplate.cloneNode(true);
     wizardCard.querySelector('.setup-similar-label').textContent = item.name;
     wizardCard.querySelector('.wizard-coat').style.fill = item.colorCoat;
-    wizardCard.querySelector('.wizard-eyes').style.fill = item.eyesColor;
+    wizardCard.querySelector('.wizard-eyes').style.fill = item.colorEyes;
 
     return wizardCard;
   };
